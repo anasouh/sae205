@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEV 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+</head>
+<style>
+    body{
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+    }
+
+    p, label, div {
+        text-align: center;
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+
+<body>
+    
+    <pre><code id="code1" class="language-java" style="font-size: 30px;">
+        // On souhaite afficher la table de multiplication de 5
+
+        public class MultiplicationTable {
+
+            public static void main(String[] args) {
+        
+                int num = ???;
+                for(int i = 1; i <= 10; ++i)
+                {
+                    System.out.printf("%d * %d = %d \n", num, i, num * i);
+                }
+            }
+        }
+    </code></pre>
+    <div>
+    <label for="code1">Le morceau manquant : </label>
+    <input type="text" name="code1" id="1">
+    </div>
+</body>
+
+<script>
+    var textInputElement = document.getElementById("1");
+    textInputElement.addEventListener('keypress', function (event) {
+        if (event.key === "Enter") {
+            if (textInputElement.value === "5"){
+                var code1 = document.getElementById("code1");
+                code1.innerHTML = code1.innerHTML.replace("???", "5");
+                textInputElement.value = "Bonne réponse";
+                textInputElement.disabled = true;
+                textInputElement.insertAdjacentHTML("afterend", "<p><b>Première partie du code : allM<b>");
+                code1.insertAdjacentHTML("afterend", `<br><div>Console :<pre><code id="out1" class="nohighlight" style="font-size: 15px;">5 * 1 = 5 
+5 * 2 = 10 
+5 * 3 = 15 
+5 * 4 = 20 
+5 * 5 = 25 
+5 * 6 = 30 
+5 * 7 = 35 
+5 * 8 = 40 
+5 * 9 = 45 
+5 * 10 = 50 </code></pre></div>`)
+            }
+        }
+    });
+</script>
+
+</html>

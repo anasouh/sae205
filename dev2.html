@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEV 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+</head>
+<style>
+    body {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+    }
+
+    p,
+    label,
+    div {
+        text-align: center;
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+
+<body>
+
+    <pre><code id="code1" class="language-java" style="font-size: 30px;">
+        // On souhaite obtenir le plus rand nombre entre trois
+
+        public class Largest {
+
+            public static void main(String[] args) {
+        
+                double n1 = -4.5, n2 = 3.9, n3 = 5.5;
+        
+                if(??? >= n2) {
+                    if(??? >= n3)
+                        System.out.println(n1 + " is the largest number.");
+                    else
+                        System.out.println(n3 + " is the largest number.");
+                } else {
+                    if(n2 >= ???)
+                        System.out.println(n2 + " is the largest number.");
+                    else
+                        System.out.println(n3 + " is the largest number.");
+                }
+            }
+        }
+    </code></pre>
+    <div id="anwser">
+        <label for="code1">Les morceaux manquants : </label>
+        <input type="text" name="code1" id="1">
+        <input type="text" name="code1" id="2">
+        <input type="text" name="code1" id="3">
+    </div>
+</body>
+
+<script>
+    var textInputElement = document.getElementById("1");
+    var textInputElement2 = document.getElementById("2");
+    var textInputElement3 = document.getElementById("3");
+    textInputElement.addEventListener('keypress', function (event) {
+        if (event.key === "Enter") {
+            if (textInputElement.value === "n1") {
+                textInputElement.value = "Bonne réponse";
+                textInputElement.disabled = true;
+                if (textInputElement.disabled && textInputElement2.disabled && textInputElement3.disabled) {
+                    var code1 = document.getElementById("code1");
+                    document.getElementById("anwser").style.display = "none";
+                    code1.insertAdjacentHTML("afterend", "<p><b>Deuxième partie du code : YHoMIeshAtEacCES<b>");
+                    code1.insertAdjacentHTML("afterend", `<br><div>Console :<pre><code id="out1" class="nohighlight" style="font-size: 15px;">5.5 is the largest number.</code></pre></div>`);
+                }
+
+            }
+        }
+    });
+    textInputElement2.addEventListener('keypress', function (event) {
+        if (event.key === "Enter") {
+            if (textInputElement2.value === "n1") {
+                textInputElement2.value = "Bonne réponse";
+                textInputElement2.disabled = true;
+                if (textInputElement.disabled && textInputElement2.disabled && textInputElement3.disabled) {
+                    var code1 = document.getElementById("code1");
+                    document.getElementById("anwser").style.display = "none";
+                    code1.insertAdjacentHTML("afterend", "<p><b>Deuxième partie du code : YHoMIeshAtEacCES<b>");
+                    code1.insertAdjacentHTML("afterend", `<br><div>Console :<pre><code id="out1" class="nohighlight" style="font-size: 15px;">5.5 is the largest number.</code></pre></div>`);
+                }
+
+            }
+        }
+    });
+    textInputElement3.addEventListener('keypress', function (event) {
+        if (event.key === "Enter") {
+            if (textInputElement3.value === "n3") {
+                textInputElement3.value = "Bonne réponse";
+                textInputElement3.disabled = true;
+                textInputElement3.insertAdjacentHTML("afterend", "<p><b>Deuxième partie du code : YHoMIeshAtEacCES<b>");
+                if (textInputElement.disabled && textInputElement2.disabled && textInputElement3.disabled) {
+                    var code1 = document.getElementById("code1");
+                    document.getElementById("anwser").style.display = "none";
+                    code1.insertAdjacentHTML("afterend", "<p><b>Deuxième partie du code : YHoMIeshAtEacCES<b>");
+                    code1.insertAdjacentHTML("afterend", `<br><div>Console :<pre><code id="out1" class="nohighlight" style="font-size: 15px;">5.5 is the largest number.</code></pre></div>`)
+                
+                }
+
+            }
+        }
+    });
+</script>
+
+</html>

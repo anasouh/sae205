@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de blabla sur le web</title>
+</head>
+
+<style>
+    body{
+        background-color: rgb(255, 255, 255);
+        color: rgb(255, 255, 255);
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1px;
+    }
+
+    input{
+        background-color : transparent;
+        
+        border: 0;
+        font-size: 20px;
+        font-weight: bold;
+        width: 594px;
+        color: rgb(0, 0, 0);
+        caret-shape: block;
+        caret-color: white;
+    }
+
+    span{
+        font-weight: bold;
+        color : black;
+        font-size: 20px;
+    }
+
+    input:focus{
+        outline: 0;
+    }
+
+    p#output{
+        margin-left: 15px;
+    }
+
+</style>
+
+<body style ="color : white">
+
+    <span> color : </span><input type="text" id="color" autofocus />
+    <p id="output"></p>
+    <span> font-size : </span><input type="text" id="font-size" autofocus />
+    <p id="output"></p>
+    <br>
+
+    <div class="translation">
+        <p>
+        <b>Traducteur</b> : Alix Marchandise-Franquet &lt;alix@panhard.com&gt;  dans le cadre de l'effort de la liste de discussion <a href="http://lists.w3.org/Archives/Public/w3c-translators-fr/">w3c-translators.fr@w3.org</a><br>
+        La version française peut contenir des erreurs. La version anglaise de cette note est l'unique version
+        normative. Version originale : <a href="http://www.w3.org/TR/1999/REC-html401-19991224">http://www.w3.org/TR/1999/REC-html401-19991224</a>
+        </p>
+        </div>
+        <hr>
+        <div class="navbar" align="center">
+        <a href="https://www.la-grange.net/w3c/html4.01/about.html">précédent</a> &nbsp;
+        <a href="https://www.la-grange.net/w3c/html4.01/intro/sgmltut.html">suivant</a> &nbsp;
+        <a href="https://www.la-grange.net/w3c/html4.01/cover.html#toc">table des matières</a> &nbsp;
+        <a href="https://www.la-grange.net/w3c/html4.01/index/elements.html">éléments</a> &nbsp;
+        <a href="https://www.la-grange.net/w3c/html4.01/index/attribs.html">attributs</a>
+        <hr>
+        </div>
+        <h1 align="center"><a name="h-2">2</a> Introduction à <abbr title="HyperText Markup Language version 4" lang="en">HTML&nbsp;4</abbr></h1>
+        <div class="subtoc">
+        <p><strong>Table des matières</strong></p>
+        <ol>
+        <li><a class="tocxref" href="#h-2.1">Qu'est-ce que le World Wide Web&nbsp;?</a>
+        <ol>
+        <li><a class="tocxref" href="#h-2.1.1">Introduction aux <abbr title="Uniform Resource Identifier" lang="en">URI</abbr></a></li>
+        <li><a class="tocxref" href="#h-2.1.2">Les identifiants de fragment</a></li>
+        <li><a class="tocxref" href="#h-2.1.3">Les <abbr title="Uniform Resource Identifier" lang="en">URI</abbr> relatifs</a></li>
+        </ol>
+        </li>
+        <li><a class="tocxref" href="#h-2.2">Qu'est-ce que <abbr title="HyperText Markup Language" lang="en">HTML</abbr>&nbsp;?</a>
+        <ol>
+        <li><a class="tocxref" href="#h-2.2.1">Une brève histoire de <abbr title="HyperText Markup Language" lang="en">HTML</abbr></a></li>
+        </ol>
+        </li>
+        <li><a class="tocxref" href="#h-2.3"><abbr title="HyperText Markup Language version 4" lang="en">HTML&nbsp;4</abbr></a>
+        <ol>
+        <li><a class="tocxref" href="#h-2.3.1">L'internationalisation</a></li>
+        <li><a class="tocxref" href="#h-2.3.2">L'accessibilité</a></li>
+        <li><a class="tocxref" href="#h-2.3.3">Les tables</a></li>
+        <li><a class="tocxref" href="#h-2.3.4">Les documents composés</a></li>
+        <li><a class="tocxref" href="#h-2.3.5">Les feuilles de styles</a></li>
+        <li><a class="tocxref" href="#h-2.3.6">Les scripts</a></li>
+        <li><a class="tocxref" href="#h-2.3.7">L'impression</a></li>
+        </ol>
+        </li>
+        <li><a class="tocxref" href="#h-2.4">La création de document avec <abbr title="HyperText Markup Language version 4" lang="en">HTML&nbsp;4</abbr></a>
+        <ol>
+        <li><a class="tocxref" href="#h-2.4.1">Séparer la structure et la présentation</a></li>
+        <li><a class="tocxref" href="#h-2.4.2">Considérer l'accès universel au Web</a></li>
+        <li><a class="tocxref" href="#h-2.4.3">Aider les agents utilisateurs dans la restitution progressive</a></li>
+        </ol>
+        </li>
+        </ol>
+        </div>
+        <h2><a name="h-2.1">2.1</a> Qu'est-ce que le World Wide Web&nbsp;?</h2>
+        <p>Le <span class="index-def" title="World Wide Web (Web)"><a name="didx-World_Wide_Web_Web"><dfn>World Wide Web (Web)</dfn></a></span> est un réseau de ressources et d'informations.
+        Le Web repose sur trois mécanismes pour rendre ces données facilement disponibles le plus largement possible :</p>
+        <ol>
+        <li>un système de nommage uniforme pour leur localisation sur le Web (par exemple, les <abbr title="Uniform Resource Identifier" lang="en">URI</abbr>) ;</li>
+        <li>des protocoles, pour accéder à des ressources nommées dont on possède l'adresse (par exemple, <abbr title="HyperText Transfer Protocol" lang="en">HTTP</abbr>) ;</li>
+        <li>l'hypertexte, pour faciliter la navigation entre ces ressources (par exemple, <abbr title="HyperText Markup Language" lang="en">HTML</abbr>).</li>
+        </ol>
+        <p>Les liens entre ces trois mécanismes apparaissent clairement tout au long de cette spécification.</p>
+        <h3><a name="h-2.1.1">2.1.1</a> <a name="intro-uris">Introduction aux <abbr title="Uniform Resource Identifier" lang="en">URI</abbr></a></h3>
+        <p>Chaque ressource disponible sur le Web -- document <abbr title="HyperText Markup Language" lang="en">HTML</abbr>, image, séquence vidéo, programme, etc. -- possède
+        une adresse représentée sous la forme d'un  <span class="index-def" title="Universal Resource Identifier (see URI)"><a name="didx-Universal_Resource_Identifier_see_URI"><dfn>identifiant de ressource uniforme</dfn></a></span>
+        ou <abbr title="Uniform Resource Identifier" lang="en">URI</abbr>.</p>
+        <p>Les <abbr title="Uniform Resource Identifier" lang="en">URI</abbr> sont formés de trois parties distinctes :</p>
+        <ol>
+        <li>le nom du protocole utilisé pour accéder à la ressource ;</li>
+        <li>le nom de la machine hébergeant la ressource ;</li>
+        <li>le nom de la ressource en question, indiqué sous la forme d'un chemin.</li>
+        </ol>
+        <p>Prenons, pour exemple, l'<abbr title="Uniform Resource Identifier" lang="en">URI</abbr> qui désigne la page des rapports techniques du W3C :</p>
+        <pre>	http://www.w3.org/TR
+        </pre>
+        <p>Cet <abbr title="Uniform Resource Identifier" lang="en">URI</abbr> peut être compris comme suit : il est disponible via le protocole <abbr title="HyperText Transfer Protocol" lang="en">HTTP</abbr> (voir <a rel="biblioentry" href="https://www.la-grange.net/w3c/html4.01/intro/references.html#ref-RFC2616">[RFC2616]</a>),
+        hébergé sur la machine nommée «&nbsp;www.w3.org&nbsp;» et accessible par le chemin "/TR".
+        On peut rencontrer d'autres systèmes dans les documents <abbr title="HyperText Markup Language" lang="en">HTML</abbr>, par exemple, comme "mailto" pour un e-mail ou "ftp" pour le protocole <abbr title="File Transfer Protocol" lang="en">FTP</abbr>.</p>
+        <div class="example">
+        <p>Voici un autre exemple d'<abbr title="Uniform Resource Identifier" lang="en">URI</abbr>, qui pointe sur la boîte aux lettres d'un utilisateur :</p>
+        <pre><em>... un texte...</em>
+        Pour tout commentaire, envoyez un e-mail à
+        &lt;A href="mailto:jean@quelquepart.com"&gt;Jean BON&lt;/A&gt;.
+        </pre>
+        </div>
+        <div class="note">
+        <p><em><strong>Remarque :</strong> La plupart des lecteurs connaît probablement le terme
+        «&nbsp;<span class="index-inst" title="URL::relationship to URI"><a name="idx-URL"><abbr title="Uniform Resource Locator" lang="en">URL</abbr></a></span>&nbsp;»
+        et non le terme «&nbsp;<abbr title="Uniform Resource Identifier" lang="en">URI</abbr>&nbsp;». Les <abbr title="Uniform Resource Locator" lang="en">URL</abbr> forment un sous-ensemble du système de nommage plus général <abbr title="Uniform Resource Identifier" lang="en">URI</abbr>.</em></p>
+        </div>
+        <h3><a name="h-2.1.2">2.1.2</a> <a name="fragment-uri">Les identifiants de fragment</a></h3>
+        <p>Certains <abbr title="Uniform Resource Identifier" lang="en">URI</abbr> se rapportent à un endroit dans une ressource. Ce genre d'<abbr title="Uniform Resource Identifier" lang="en">URI</abbr> se termine par un caractère «&nbsp;#&nbsp;»,
+        suivi par l'identifiant d'une ancre (appelé <span class="index-def" title="fragment identifier"><a name="didx-fragment_identifier"><dfn>identifiant de fragment</dfn></a></span> ).
+        Par exemple, voici un <abbr title="Uniform Resource Identifier" lang="en">URI</abbr> qui pointe sur l'ancre <samp>section_2</samp> de la page <samp>top.html</samp> :</p>
+        <pre class="example">http://unsite.com/html/top.html#section_2
+        </pre>
+        <h3><a name="h-2.1.3">2.1.3</a> <a name="relative-uris">Les <abbr title="Uniform Resource Identifier" lang="en">URI</abbr> relatifs</a></h3>
+        <p>Un <span class="index-def" title="relative URI|URI::relative"><a name="didx-relative_URI"><dfn><abbr title="Uniform Resource Identifier" lang="en">URI</abbr> relatif</dfn></a></span>
+        ne comporte pas de nom de protocole ni de nom de machine. Son chemin se 
+        rapporte généralement à une ressource
+        disponible sur la même machine que le document courant. Les liens 
+        relatifs peuvent comporter d'autres composants de chemin relatifs
+        (par exemple, ces caractères «&nbsp;..&nbsp;» signifient le niveau 
+        supérieur dans la hiérchie définie par le chemin)
+        et des <a href="#fragment-uri">identifiants de fragment</a>.</p>
+        <p>Les <span class="index-inst" title="relative URI::resolution of|URI::resolution of relative"><a name="idx-relative_URI-1"><abbr title="Uniform Resource Identifier" lang="en">URI</abbr> relatifs</a></span>
+        se <a href="https://www.la-grange.net/w3c/html4.01/struct/links.html#resolving-relative-uris">résolvent en <abbr title="Uniform Resource Identifier" lang="en">URI</abbr> complets</a>, en utilisant l'<abbr title="Uniform Resource Identifier" lang="en">URI</abbr> de base.
+        Comme exemple de résolution d'<abbr title="Uniform Resource Identifier" lang="en">URI</abbr> relatif, prenons l'<abbr title="Uniform Resource Identifier" lang="en">URI</abbr> de base : "http://www.acme.com/support/intro.html".
+        Dans le balisage de lien hypertexte ci-dessous :</p>
+        <pre>  &lt;A href="fournisseurs.html"&gt;Fournisseurs&lt;/A&gt;
+        </pre>
+        <p>l'<abbr title="Uniform Resource Identifier" lang="en">URI</abbr> relatif se développerait en l'<abbr title="Uniform Resource Identifier" lang="en">URI</abbr> complet "http://www.acme.com/support/fournisseurs.html",
+        tandis que pour le balisage de l'image ci-dessous :</p>
+        <pre>  &lt;IMG src="../icones/logo.gif" alt="logo"&gt;
+        </pre>
+        <p>l'<abbr title="Uniform Resource Identifier" lang="en">URI</abbr> relatif se développerait en l'<abbr title="Uniform Resource Identifier" lang="en">URI</abbr> complet "http://www.acme.com/icones/logo.gif".</p>
+        <p><a name="h-2.1.3_04">En</a> <abbr title="HyperText Markup Language" lang="en">HTML</abbr>, les <span class="index-inst" title="URI::uses of in HTML"><a name="idx-URI-2"><abbr title="Uniform Resource Identifier" lang="en">URI</abbr></a></span> s'utilisent pour :</p>
+        <ul>
+        <li>relier un autre document ou ressource (voir les éléments <a href="https://www.la-grange.net/w3c/html4.01/struct/links.html#edef-A" class="noxref"><samp class="einst">A</samp></a> et <a href="https://www.la-grange.net/w3c/html4.01/struct/links.html#edef-LINK" class="noxref"><samp class="einst">LINK</samp></a>) ;</li>
+        <li>relier une feuille de style externe ou un script (voir <a href="https://www.la-grange.net/w3c/html4.01/struct/links.html#edef-LINK" class="noxref"><samp class="einst">LINK</samp></a> et <a href="https://www.la-grange.net/w3c/html4.01/interact/scripts.html#edef-SCRIPT" class="noxref"><samp class="einst">SCRIPT</samp></a>) ;</li>
+        <li>inclure une images, un objet ou un applet dans une page (voir les éléments <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#edef-IMG" class="noxref"><samp class="einst">IMG</samp></a>,
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#edef-OBJECT" class="noxref"><samp class="einst">OBJECT</samp></a>,
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#edef-APPLET" class="noxref"><samp class="einst">APPLET</samp></a>
+        et <a href="https://www.la-grange.net/w3c/html4.01/interact/forms.html#edef-INPUT" class="noxref"><samp class="einst">INPUT</samp></a>) ;</li>
+        <li>créer des images cliquables (voir les éléments
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#edef-MAP" class="noxref"><samp class="einst">MAP</samp></a> et
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#edef-AREA" class="noxref"><samp class="einst">AREA</samp></a>) ;</li>
+        <li>soumettre un formulaire (voir l'élément <a href="https://www.la-grange.net/w3c/html4.01/interact/forms.html#edef-FORM" class="noxref"><samp class="einst">FORM</samp></a>) ;</li>
+        <li>créer un cadre (voir les éléments <a href="https://www.la-grange.net/w3c/html4.01/present/frames.html#edef-FRAME" class="noxref"><samp class="einst">FRAME</samp></a> et <a href="https://www.la-grange.net/w3c/html4.01/present/frames.html#edef-IFRAME" class="noxref"><samp class="einst">IFRAME</samp></a>) ;</li>
+        <li>citer une référence externe (voir les éléments
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/text.html#edef-Q" class="noxref"><samp class="einst">Q</samp></a>,
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/text.html#edef-BLOCKQUOTE" class="noxref"><samp class="einst">BLOCKQUOTE</samp></a>,
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/text.html#edef-ins" class="noxref"><samp class="einst">INS</samp></a> et
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/text.html#edef-del" class="noxref"><samp class="einst">DEL</samp></a>) ;</li>
+        <li>se reporter aux conventions de métadonnées qui décrivent un document (voir l'élément
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/global.html#edef-HEAD" class="noxref"><samp class="einst">HEAD</samp></a>).</li>
+        </ul>
+        <p><span class="err"><a href="https://www.la-grange.net/w3c/html4.01/errata/index.html#entry-4" title="Vers l'errata traduit">errata-04</a></span></p>
+        <p>Veuillez consulter la section concernant le type <a href="https://www.la-grange.net/w3c/html4.01/types.html#type-uri">URI</a> pour plus d'informations.</p>
+        <h2><a name="h-2.2">2.2</a> Qu'est-ce que <abbr title="HyperText Markup Language" lang="en">HTML</abbr>&nbsp;?</h2>
+        <p>Publier de l'information en vue d'une distribution mondiale nécessite l'usage d'un langage universellement
+        compréhensible, d'une sorte de «&nbsp;langue maternelle&nbsp;» acceptée par tous les ordinateurs.
+        Le langage de publication utilisé sur le World Wide Web est le langage de balisage hypertexte <abbr title="HyperText Markup Language" lang="en">HTML</abbr>.</p>
+        <p><abbr title="HyperText Markup Language" lang="en">HTML</abbr> donne aux auteurs les moyens de :</p>
+        <ul>
+        <li>publier des documents en ligne possédant des titres, du texte, des tables, des listes, des photos, etc. </li>
+        <li>ramener des informations en ligne via des liens hypertextes avec un clic ;</li>
+        <li>concevoir des formulaires pour conduire des transactions avec des services distants, dans le but de rechercher des informations,
+        de faire des réservations, de prendre des commandes, etc. </li>
+        <li>inclure des feuilles de calculs, des séquences vidéos ou sonores et d'autres applications, directement dans les documents.</li>
+        </ul>
+        <h3><a name="h-2.2.1">2.2.1</a> Une brève histoire de <abbr title="HyperText Markup Language" lang="en">HTML</abbr></h3>
+        <p>Le langage <span class="index-inst" title="HTML::development of"><a name="idx-HTML"><abbr title="HyperText Markup Language" lang="en">HTML</abbr></a></span> a été
+        développé à l'origine par Tim Berners-Lee, alors au <span class="index-inst" title="CERN"><a name="idx-CERN">CERN</a></span>,
+        et popularisé par le navigateur Mosaic, développé au NCSA. Pendant les années 1990,
+        il s'est épanoui en profitant de la croissance explosive du Web. Durant cette période, <abbr title="HyperText Markup Language" lang="en">HTML</abbr> s'est agrandi de nombreuses
+        manières différentes. Le Web dépend des auteurs de pages et des éditeurs de logiciels qui partagent
+        les mêmes conventions pour <abbr title="HyperText Markup Language" lang="en">HTML</abbr>. Cela a motivé un travail commun sur les spécifications de <abbr title="HyperText Markup Language" lang="en">HTML</abbr>.</p>
+        <p>La spécification <span class="index-inst" title="HTML::version 2.0"><a name="idx-HTML-1"><abbr title="HyperText Markup Language version 2.0" lang="en">HTML&nbsp;2.0</abbr></a></span>
+        (novembre 1995, voir <a rel="biblioentry" href="https://www.la-grange.net/w3c/html4.01/references.html#ref-RFC1866" class="informref">[RFC1866]</a>) a été
+        développé sous l'égide de l'<span class="index-inst" title="Internet Engineering Task Force (IETF)"><a name="idx-Internet_Engineering_Task_Force_IETF">Internet Engineering Task Force (IETF)</a></span>
+        pour codifier les pratiques courantes à la fin de 1994. Les spécifications <span class="index-inst" title="HTML::version HTML+"><a name="idx-HTML-2"><abbr title="HyperText Markup Language Plus" lang="en">HTML+</abbr></a></span> (1993)
+        et <span class="index-inst" title="HTML::version 3.0"><a name="idx-HTML-3"><abbr title="HyperText Markup Language version 3.0" lang="en">HTML&nbsp;3.0</abbr></a></span>
+        (1995, voir <a rel="biblioentry" href="https://www.la-grange.net/w3c/html4.01/references.html#ref-HTML30" class="informref">[HTML30]</a>) proposaient des versions
+        <abbr title="HyperText Markup Language" lang="en">HTML</abbr> bien plus riches. Malgré l'absence de consensus autour d'un standard, ces avant-projets ont conduit à l'adoption
+        d'un éventail de fonctions nouvelles. Les efforts du groupe de travail <abbr title="HyperText Markup Language" lang="en">HTML</abbr> du World Wide Web Consortium pour la codification
+        des pratiques courantes en 1996 donnèrent naissance à la spécification
+        <span class="index-inst" title="HTML::version 3.2"><a name="idx-HTML-4"><abbr title="HyperText Markup Language version 3.2" lang="en">HTML&nbsp;3.2</abbr></a></span> (janvier 1997, voir <a rel="biblioentry" href="https://www.la-grange.net/w3c/html4.01/references.html#ref-HTML32" class="informref">[HTML32]</a>).
+        Les changements intervenus entre <abbr title="HyperText Markup Language version 3.2" lang="en">HTML&nbsp;3.2</abbr> et <abbr title="HyperText Markup Language version 4" lang="en">HTML&nbsp;4</abbr> sont résumés dans l'<a href="https://www.la-grange.net/w3c/html4.01/appendix/changes.html">appendice A</a>.</p>
+        <p>La plupart des gens sont d'accord sur le fait que les documents <abbr title="HyperText Markup Language" lang="en">HTML</abbr> devraient fonctionner correctement sur des plates-formes et des navigateurs différents.
+        Parvenir à l'interopérabilité permet de baisser les coûts des fournisseurs de contenus parce qu'ils
+        n'ont à développer qu'une seule version d'un document. Si cet effort n'est pas fait, le risque est grand de voir
+        le Web régresser vers un monde propriétaire de formats incompatibles, en réduisant en fin de compte
+        son potentiel commercial au détriment de tous ses participants.</p>
+        <p>Chaque version <abbr title="HyperText Markup Language" lang="en">HTML</abbr> a essayé de refléter le plus grand consensus entre les acteurs de l'industrie, de sorte que les
+        investissements consentis par les fournisseurs de contenus ne soient pas gaspillés et que leurs documents ne deviennent en
+        peu de temps illisibles.</p>
+        <p>Le langage <abbr title="HyperText Markup Language" lang="en">HTML</abbr>
+         a été développé avec l'intuition que les appareils de toutes sortes
+        devaient pouvoir utiliser les informations sur le Web : les ordinateurs 
+        personnels avec des écrans de résolution et de profondeur de couleurs 
+        variables,
+        les téléphones cellulaires, les appareils portables, les appareils de 
+        synthèse et de reconnaissance de la parole,
+        les ordinateurs avec une bande passante faible comme élevée, et ainsi de
+         suite.</p>
+        <h2><a name="h-2.3">2.3</a> <abbr title="HyperText Markup Language version 4" lang="en">HTML&nbsp;4</abbr></h2>
+        <p>La spécification <abbr title="HyperText Markup Language version 4" lang="en">HTML&nbsp;4</abbr> prolonge <abbr title="HyperText Markup Language" lang="en">HTML</abbr> avec des mécanismes pour les feuilles de styles, les scripts, les cadres,
+        l'incorporation des objets, la gestion améliorée des écritures de droite à gauche ou mixtes,
+        les tables enrichies et les améliorations des formulaires, qui augmentent l'accessibilité pour les personnes ayant un
+        handicap physique.</p>
+        <p>La spécification <abbr title="HyperText Markup Language version 4.01" lang="en">HTML&nbsp;4.01</abbr> est une révision de <abbr title="HyperText Markup Language version 4" lang="en">HTML&nbsp;4</abbr> qui corrige des erreurs et apporte certains
+        <a href="https://www.la-grange.net/w3c/html4.01/appendix/changes.html">changements depuis la révision précédente</a>.</p>
+        <h3><a name="h-2.3.1">2.3.1</a> L'internationalisation</h3>
+        <p>Cette version de <abbr title="HyperText Markup Language" lang="en">HTML</abbr> a été conçue avec l'aide d'experts dans le domaine de l'internationalisation,
+        de telle sorte que les documents peuvent être écrits en toutes langues et diffusés partout dans le monde.
+        Cela a été accompli en tenant compte du document <a rel="biblioentry" href="https://www.la-grange.net/w3c/html4.01/references.html#ref-RFC2070" class="informref">[RFC2070]</a>,
+        qui traite de l'internationalisation de <abbr title="HyperText Markup Language" lang="en">HTML</abbr>.</p>
+        <p>L'adoption de la norme ISO/IEC:10646 (voir <a rel="biblioentry" href="https://www.la-grange.net/w3c/html4.01/references.html#ref-ISO10646" class="normref">[ISO10646]</a>),
+        comme jeu de caractères du document pour <abbr title="HyperText Markup Language" lang="en">HTML</abbr>, a représenté une étape importante. C'est la norme mondiale
+        la plus complète, qui tient compte des problèmes concernant la représentation des caractères internationaux,
+        le sens des écritures, la ponctuation et autres particularités des langues mondiales.</p>
+        <p>Le langage <abbr title="HyperText Markup Language" lang="en">HTML</abbr> propose maintenant une meilleure gestion des diverses langues humaines à l'intérieur du document.
+        Cela permet une efficacité accrue dans l'indexation des documents par les moteurs de recherche, la typographie de qualité,
+        la syntèse de la parole à partir du texte, la césure, etc.</p>
+        <h3><a name="h-2.3.2">2.3.2</a> <span class="index-inst" title="accessibility::features in HTML&nbsp;4"><a name="accessibility">L'accessibilité</a></span></h3>
+        <p>Au fur et à mesure de la croissance de la communauté du Web et de la diversification des capacités et
+        aptitudes de ses membres, il devient crucial que les technologies employées soient appropriées à leurs besoins spécifiques.
+        Le langage <abbr title="HyperText Markup Language" lang="en">HTML</abbr> a été conçu pour rendre les pages Web plus accessibles à ceux qui ont des déficiences physiques.
+        Les développements de <abbr title="HyperText Markup Language version 4" lang="en">HTML&nbsp;4</abbr> qui ont été inspirés par ce souci de l'accessibilité comprennent :</p>
+        <ul>
+        <li>une meilleure distinction de la structure et de la présentation du document, en encourageant pour cela l'utilisation des
+        feuilles de style au lieu des éléments et attributs de présentation <abbr title="HyperText Markup Language" lang="en">HTML</abbr> ;
+        </li>
+        <li>l'amélioration des formulaires, ce qui comprend l'ajout de clés d'accès <span class="vo">[ndt. access keys]</span>,
+        l'ajout de la possibilité de regrouper sémantiquement les contrôles des formulaires et celle de regrouper sémantiquement
+        les options de l'élément <a href="https://www.la-grange.net/w3c/html4.01/interact/forms.html#edef-SELECT" class="noxref"><samp class="einst">SELECT</samp></a>
+        et l'ajout des étiquettes actives <span class="vo">[ndt. active labels]</span> ;
+        </li>
+        <li>la possibilité de baliser la description textuelle d'un objet incorporé (avec l'élément
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#edef-OBJECT" class="noxref"><samp class="einst">OBJECT</samp></a>) ;</li>
+        <li>un nouveau mécanisme d'images cliquables côté client (l'élément <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#edef-MAP" class="noxref"><samp class="einst">MAP</samp></a> ),
+        qui permet aux auteurs d'intégrer des liens sous forme de texte et d'images ;</li>
+        <li>l'accompagnement obligatoire des images, incluses avec l'élément <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#edef-IMG" class="noxref"><samp class="einst">IMG</samp></a>,
+        et des images cliquables, incluses avec l'élément <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#edef-AREA" class="noxref"><samp class="einst">AREA</samp></a>,
+        d'un texte de remplacement ;
+        </li>
+        <li>la gestion des attributs <a href="https://www.la-grange.net/w3c/html4.01/struct/global.html#adef-title" class="noxref"><samp class="ainst">title</samp></a> et
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/dirlang.html#adef-lang" class="noxref"><samp class="ainst">lang</samp></a> pour tous les éléments ;
+        </li>
+        <li>la gestion des éléments <a href="https://www.la-grange.net/w3c/html4.01/struct/text.html#edef-ABBR" class="noxref"><samp class="einst">ABBR</samp></a>
+        et <a href="https://www.la-grange.net/w3c/html4.01/struct/text.html#edef-ACRONYM" class="noxref"><samp class="einst">ACRONYM</samp></a> ;
+        </li>
+        <li>un éventail élargi des médias cibles (tty, braille, etc.) à utiliser avec les feuilles de style ;
+        </li>
+        <li>l'amélioration des tables, en y incluant des légendes, des regroupements de colonnes et des mécanismes
+        pour faciliter la restitution non visuelle ;</li>
+        <li>les descriptions longues des tables, images, cadres, etc.</li>
+        </ul>
+        <p>Les auteurs qui composent des pages en tenant compte de ces notions d'accessibilité ne seront pas seulement remerciés
+        par les utilisateurs intéressés mais en retireront aussi d'autres bénéfices : les documents <abbr title="HyperText Markup Language" lang="en">HTML</abbr> bien conçus,
+        qui distinguent la structure de la présentation, s'adapteront plus facilement aux nouvelles technologies.</p>
+        <div class="note">
+        <p><em><strong>Remarque :</strong> Pour plus d'informations sur la conception de documents <abbr title="HyperText Markup Language" lang="en">HTML</abbr> accessibles, veuillez consulter
+        <a rel="biblioentry" href="https://www.la-grange.net/w3c/html4.01/references.html#ref-WAI" class="informref">[WAI]</a>.</em></p>
+        </div>
+        <h3><a name="h-2.3.3">2.3.3</a> Les tables</h3>
+        <p>Le nouveau modèle de la table se base sur le document <a rel="biblioentry" href="https://www.la-grange.net/w3c/html4.01/references.html#ref-RFC1942" class="informref">[RFC1942]</a>.
+        Les auteurs disposent maintenant d'un plus grand contrôle sur leur 
+        structure et leur disposition (par exemple, les regroupements de 
+        colonnes).
+        La possibilité dont disposent les auteurs de spécifier la largeur des 
+        colonnes permet aux agents utilisateurs
+        d'afficher les données de table progressivment (au fur et à mesure du 
+        chargement), plutôt que d'attendre
+        le chargement entier de la table avant de pouvoir la restituer.</p>
+        <div class="note">
+        <em><strong>Remarque :</strong>  Au moment de la rédaction de la spécification, certains logiciels d'édition <abbr title="HyperText Markup Language" lang="en">HTML</abbr>
+        s'appuient essentiellement sur les <span class="index-inst" title="table::not for formatting pages"><a name="idx-table">tables</a></span>
+        pour la mise en page, ce qui peut aisément entraîner des problèmes d'accessibilité.</em>
+        </div>
+        <h3><a name="h-2.3.4">2.3.4</a> Les documents composés</h3>
+        <p>Le langage <abbr title="HyperText Markup Language" lang="en">HTML</abbr> offre maintenant une structure standard pour l'incorporation d'objets média et d'applications
+        génériques dans les documents <abbr title="HyperText Markup Language" lang="en">HTML</abbr>. L'élément <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#edef-OBJECT" class="noxref"><samp class="einst">OBJECT</samp></a>
+        (de même que ses ancêtres, les éléments plus spécifiques
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#edef-IMG" class="noxref"><samp class="einst">IMG</samp></a> et
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#edef-APPLET" class="noxref"><samp class="einst">APPLET</samp></a>) fournit le moyen
+        d'inclure des images, des séquences vidéo, de l'audio, des mathématiques, des applications spécialisées
+        et d'autres objets dans un document. Il permet aussi aux auteurs de spécifier une hiérarchie de restitutions
+        de remplacement aux agents utilisateurs qui ne gèrent pas certaines restitutions particulières.</p>
+        <h3><a name="h-2.3.5">2.3.5</a> Les feuilles de styles</h3>
+        <p>Les feuilles de styles simplifient le balisage <abbr title="HyperText Markup Language" lang="en">HTML</abbr> et soulagent grandement <abbr title="HyperText Markup Language" lang="en">HTML</abbr>
+         des responsabilités de la présentation.
+        Elles donnent aux auteurs comme aux utilisateurs le contrôle de la 
+        présentation des documents -- informations sur les polices de 
+        caractères,
+        alignement, couleurs, etc.</p>
+        <p>Les informations de style peuvent être spécifiées pour un élément ponctuel ou pour des groupes
+        d'éléments. Elles peuvent se trouver à l'intérieur du document <abbr title="HyperText Markup Language" lang="en">HTML</abbr> ou dans une feuille de styles externe.</p>
+        <p>Les mécanismes, qui associent une feuille de styles à un document, sont indépendants du langage de feuille de style.</p>
+        <p>Avant l'apparition des feuilles de styles, les auteurs disposaient d'un contrôle limité sur la restitution des pages.
+        <abbr title="HyperText Markup Language version 3.2" lang="en">HTML&nbsp;3.2</abbr>
+         comprenait un certain nombre d'attributs et d'éléments permettant un 
+        contrôle de l'alignement,
+        de la taille de la police de caractères et de la couleur du texte. Les 
+        auteurs abusaient également de tables et d'images
+        pour la mise en page. Le temps relativement long nécessaire pour que les
+         utilisateurs mettent à jour leurs navigateurs
+        implique que ces usages vont perdurer encore pendant un certain temps. 
+        Cependant, puisque les feuilles de styles offrent des moyens
+        de présentation plus puissants, le World Wide Web Consortium fera 
+        graduellement disparaître nombre d'éléments
+        et d'attributs de présentation <abbr title="HyperText Markup Language" lang="en">HTML</abbr>. Tout au long de ce document, les éléments et attributs concernés
+        sont marqués comme «&nbsp;<a href="https://www.la-grange.net/w3c/html4.01/convent.html#deprecated">déconseillés</a>&nbsp;».
+        Ils sont généralement accompagnés d'exemples montrant comment parvenir au même résultat
+        en utilisant d'autres éléments ou les feuilles de styles.</p>
+        <h3><a name="h-2.3.6">2.3.6</a> Les scripts</h3>
+        <p>Au travers de scripts, les auteurs peuvent concevoir des pages Web 
+        dynamiques (par exemple, des «&nbsp;formulaires intelligents&nbsp;»
+        qui réagissent au cours de leur remplissage par l'utilisateur) et 
+        utiliser <abbr title="HyperText Markup Language" lang="en">HTML</abbr> comme support d'applications en réseau. </p>
+        <p>
+        Les mécanismes fournis pour associer <abbr title="HyperText Markup Language" lang="en">HTML</abbr> et scripts sont indépendants du langage de script.
+        </p>
+        <h3><a name="h-2.3.7">2.3.7</a> L'impression</h3>
+        <p>Les auteurs voudront parfois aider l'utilisateur dans l'impression d'autres documents, en plus du document courant.
+        Lorsque des documents font partie d'un ensemble, on peut décrire leurs relations en utilisant l'élément <abbr title="HyperText Markup Language" lang="en">HTML</abbr>
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/links.html#edef-LINK" class="noxref"><samp class="einst">LINK</samp></a> ou encore en utilisant le
+        <span class="index-inst" title="Resource Description Framework (RDF)"><a name="idx-Resource_Description_Framework_RDF">cadre de description des ressources (<abbr title="Resource Description Framework">RDF</abbr>)</a></span>
+        du W3C (voir <a href="https://www.la-grange.net/w3c/html4.01/references.html#ref-RDF10" class="informref">[RDF10]</a>).</p>
+        <h2><a name="h-2.4">2.4</a> La création de document avec <abbr title="HyperText Markup Language version 4" lang="en">HTML&nbsp;4</abbr></h2>
+        <p>Nous recommandons aux auteurs et aux développeurs d'observer les <span class="index-inst" title="HTML::authoring tips"><a name="idx-HTML-5">principes généraux</a></span>
+        suivants dans leur travail avec <abbr title="HyperText Markup Language version 4" lang="en">HTML&nbsp;4</abbr>.</p>
+        <h3><a name="h-2.4.1">2.4.1</a> Séparer la structure et la présentation</h3>
+        <p>Le langage <abbr title="HyperText Markup Language" lang="en">HTML</abbr> trouve ses racines dans <abbr title="Standard Generalized Markup Language" lang="en">SGML</abbr> qui a toujours été un langage destiné à la spécification
+        d'un balisage de structures. Avec la maturité, les éléments et attributs de présentation <abbr title="HyperText Markup Language" lang="en">HTML</abbr>
+        sont de plus en plus remplacés par d'autres mécanismes, en particulier les feuilles de styles.
+        L'expérience montre que la séparation de la structure d'un document de sa présentation permet de réduire
+        les coûts de diffusion vers un grand éventail de plates-formes, de médias, etc.,
+        et facilite la mise à jour des documents.</p>
+        <h3><a name="h-2.4.2">2.4.2</a> Considérer l'accès universel au Web</h3>
+        <p>De manière à rendre le Web plus accessible à tous, notamment aux 
+        personnes avec un handicap physique,
+        les auteurs devraient prendre en compte la façon dont leurs documents 
+        seront interprétés sur une grande variété de plates-formes :
+        les navigateurs commandés à la voix, les lecteurs en Braille, etc. Nous 
+        ne demandons pas aux concepteurs de brider
+        leur créativité, seulement que leurs créations intègrent les 
+        restitutions alternatives.
+        <abbr title="HyperText Markup Language" lang="en">HTML</abbr> propose nombre de mécanismes à cet effet (par exemple, les attributs
+        <a href="https://www.la-grange.net/w3c/html4.01/struct/objects.html#adef-alt" class="noxref"><samp class="ainst">alt</samp></a>,
+        <a href="https://www.la-grange.net/w3c/html4.01/interact/forms.html#adef-accesskey" class="noxref"><samp class="ainst">accesskey</samp></a>, etc.)</p>
+        <p>En outre, les auteurs devraient garder à l'esprit que leurs documents peuvent aussi toucher des publics éloignés,
+         dont les ordinateurs sont configurés très différemment. Pour qu'un document soit correctement interprété,
+         les auteurs devraient y inclure des informations sur la langue naturelle et le sens d'écriture, sur l'encodage employé
+         et d'autres aspects relatifs à l'internationalisation.</p>
+        <h3><a name="h-2.4.3">2.4.3</a> Aider les agents utilisateurs dans la restitution progressive</h3>
+        <p>En concevant soigneusement <strong>"MOT DE PASSE : J4aIinvENteRLeWEb"</strong>  leurs tables et en faisant appel aux nouvelles fonctionnalités des tables de <abbr title="HyperText Markup Language version 4" lang="en">HTML&nbsp;4</abbr>,
+        les auteurs peuvent aider les agents utilisateurs à restituer les documents plus rapidement. Les auteurs peuvent apprendre
+        à concevoir des tables pour leur restitution progressive (voir l'élément <a href="https://www.la-grange.net/w3c/html4.01/struct/tables.html#edef-TABLE" class="noxref"><samp class="einst">TABLE</samp></a>).
+        Les développeurs peuvent consulter les <a href="https://www.la-grange.net/w3c/html4.01/appendix/notes.html#notes-tables">remarques sur les tables</a> dans l'appendice
+        pour des informations sur les algorithmes progressifs.</p>
+        <div class="navbar" align="center">
+        <hr><a href="https://www.la-grange.net/w3c/html4.01/about.html">précédent</a> &nbsp;
+        <a href="https://www.la-grange.net/w3c/html4.01/intro/sgmltut.html">suivant</a> &nbsp;
+        <a href="https://www.la-grange.net/w3c/html4.01/cover.html#minitoc">table des matières</a> &nbsp;
+        <a href="https://www.la-grange.net/w3c/html4.01/index/elements.html">éléments</a> &nbsp;
+        <a href="https://www.la-grange.net/w3c/html4.01/index/attributes.html">attributs</a> &nbsp;
+        <a href="https://www.la-grange.net/w3c/html4.01/index/list.html">index</a></div>
+    
+</body>
+
+<script>
+    var textInputElement = document.getElementById('color');
+    textInputElement.addEventListener('keypress', function (event) {
+                document.body.style.color = textInputElement.value; 
+    });
+
+    var textInputElement2 = document.getElementById('font-size');
+    textInputElement2.addEventListener('keypress', function (event) {
+                document.body.style.fontSize = textInputElement2.value; 
+    });
+
+</script>
+</html>
+

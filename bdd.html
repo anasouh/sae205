@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal</title>
+</head>
+
+<style>
+    body{
+        background-color: rgb(26, 26, 26);
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+    }
+
+    input{
+        background-color: transparent;
+        border: 0;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+        font-weight: bold;
+        width: 75%;
+        color: white;
+        caret-shape: block;
+        caret-color: white;
+    }
+
+    span{
+        font-weight: bold;
+    }
+
+    input:focus{
+        outline: 0;
+    }
+
+    p#output{
+        margin-left: 15px;
+    }
+</style>
+
+<body>
+    <span>postgreSQL:~/$ </span><input type="text" id="term" autofocus />
+    <p id="output"></p>
+</body>
+
+<script>
+    var textInputElement = document.getElementById('term');
+    textInputElement.addEventListener('keypress', function (event) {
+        if (event.key === "Enter") {
+            if (textInputElement.value === "select mot_de_passe from professeur where prenom='philippe' and nom='mathieu'" || 
+            textInputElement.value === "SELECT mot_de_passe FROM professeur WHERE prenom='philippe' AND nom='mathieu'" || 
+            textInputElement.value === "SELECT mot_de_passe FROM professeur WHERE nom='mathieu' AND prenom='philippe''" ||
+            textInputElement.value === "select mot_de_passe from professeur where nom='mathieu' and prenom='philippe'") {
+                document.getElementById("output").innerHTML = `Le mot de passe du professeur : <b>J4aIMeLaBDd</b>`;
+            } else {
+                document.getElementById("output").innerHTML = `SQL: `+textInputElement.value+`: command not found`;
+            }
+
+        } 
+    });
+</script>
+</html>

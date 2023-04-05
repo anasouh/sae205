@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal</title>
+</head>
+
+<style>
+    body{
+        background-color: rgb(26, 26, 26);
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+    }
+
+    input{
+        background-color: transparent;
+        border: 0;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+        font-weight: bold;
+        width: 594px;
+        color: white;
+        caret-shape: block;
+        caret-color: white;
+    }
+
+    span{
+        font-weight: bold;
+    }
+
+    input:focus{
+        outline: 0;
+    }
+
+    p#output{
+        margin-left: 15px;
+    }
+</style>
+
+<body>
+    <span>apprenti.etu@frene14:~/$ </span><input type="text" id="term" autofocus />
+    <p id="output"></p>
+</body>
+
+<script>
+    var textInputElement = document.getElementById('term');
+    textInputElement.addEventListener('keypress', function (event) {
+        if (event.key === "Enter") {
+            if (textInputElement.value === "tree"){
+                document.getElementById("output").innerHTML = `.<br>├── Bureau<br>├── Documents<br>│   └── Cours<br>│       ├── R1.01<br>│       │   ├── td1.pdf<br>│       │   ├── td2.pdf<br>│       │   └── td3.pdf<br>│       ├── R1.02<br>│       │   ├── td1.pdf<br>│       │   ├── td2.pdf<br>│       │   └── td3.pdf<br>│       ├── R1.03<br>│       │   ├── td1.pdf<br>│       │   ├── td2.pdf<br>│       │   └── td3.pdf<br>│       ├── R1.04<br>│       │   ├── td1.pdf<br>│       │   ├── td2.pdf<br>│       │   ├── td3.pdf<br>│       │   └── <b style="color: green">unlockPC.sh</b><br>│       ├── R1.05<br>│       │   ├── td1.pdf<br>│       │   ├── td2.pdf<br>│       │   └── td3.pdf<br>│       ├── R1.06<br>│       │   ├── td1.pdf<br>│       │   ├── td2.pdf<br>│       │   └── td3.pdf<br>│       ├── R1.07<br>│       │   ├── td1.pdf<br>│       │   ├── td2.pdf<br>│       │   └── td3.pdf<br>│       └── R1.08<br>│           ├── td1.pdf<br>│           ├── td2.pdf<br>│           └── td3.pdf<br>├── GNS3<br>│   ├── appliances<br>│   ├── configs<br>│   │   ├── ios_base_startup-config.txt<br>│   │   ├── ios_etherswitch_startup-config.txt<br>│   │   ├── iou_l2_base_startup-config.txt<br>│   │   ├── iou_l3_base_startup-config.txt<br>│   │   └── vpcs_base_config.txt<br>│   ├── images<br>│   │   ├── IOS<br>│   │   │   ├── c7200-adventerprisek9-mz.152-4.M7.bin<br>│   │   │   └── c7200-adventerprisek9-mz.152-4.M7.bin.md5sum<br>│   │   └── QEMU -> /usr/local/share/gns3/QEMU/<br>│   ├── projects<br>│   └── symbols<br>│       └── Debian-OpenLogo.svg<br>├── Public<br>├── public_html<br>│   └── index.html<br>├── systeme.html<br>├── System Volume Information<br>├── Téléchargements<br>│   ├── tp1.pdf<br>│   └── tp2.pdf<br>└── VirtualBox VMs<br>`;
+            } else if (textInputElement.value === "tree"){
+                document.getElementById("output").innerHTML = "";
+            } else if (textInputElement.value === "ls"){
+                document.getElementById("output").innerHTML = ` Bureau                      public_html<br><br>
+ Documents                  'System Volume Information'<br><br>
+ GNS3                        Téléchargements<br><br>
+ 'VirtualBox VMs'            Public`;
+            } else if (textInputElement.value === "Documents/Cours/R1.04/unlockPC.sh" || textInputElement.value === "./Documents/Cours/R1.04/unlockPC.sh") {
+                document.getElementById("output").innerHTML = `La machine a correctement été débloquée, voici le code secret : <b>DebIAn>W10</b>`;
+            } else {
+                document.getElementById("output").innerHTML = `bash: `+textInputElement.value+`: command not found`;
+            }
+
+        } 
+    });
+</script>
+</html>
